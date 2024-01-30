@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6366f1;
+}
+/*
+Importante
+id: #vwvvr
+class: .fewfwef
+*/
+#container{
+    display: flex;
+    flex-direction: column;/*deixa tudo em coluna*/
+    gap: 8px;
+    width: 500px;
+
+}
+
+.accordion{
+background-color: #fff;/* cor da caixa*/
+border-radius: 8px;/*deixa cada caixa nas pontas redondas*/
+padding: 12px;/*Afasta tudo um pouco*/
+cursor: pointer;
+box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+.accordion-header{
+    width: 100%;/*deixa o header bem largo*/
+    border: none;/*tira as linhas da caixa do header*/
+    background-color: transparent;/*tira totalmente a cor*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;/*Aumenta o tamanho da letra*/
+    cursor: pointer;
+}
+.accordion-header span{
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;/*caso a pergunta for grande ira aparecer ".....*/
+}
+.accordion-body{
+    color: #444;
+    font-size: 14px;/*diminui o tamanho da letra do body*/
+    padding: 5px 0px;
+    opacity: 0;/*faz o texto do body sumir*/
+    height: 0;/*diminui a caixa do body*/
+    overflow: hidden; /*tira o bug de baixo*/
+    transition: opacity .3s;/*o texto vai abrir em camera lenta*/
+}
+.accordion-body.active{
+    height: 100%;
+    opacity: 1;
+  
+}
+.arrow{
+    transition: transform .2s linear;
+}
+.accordion:has(.active) .arrow{
+    transform: rotate(180deg);
+}
